@@ -1657,10 +1657,6 @@ bool Video::CreateHostDevice(const char *sdlVideoDriver)
 
     GameWindow::Init(sdlVideoDriver);
 
-#ifdef UNLEASHED_RECOMP_D3D12
-    g_vulkan = DetectWine() || Config::GraphicsAPI == EGraphicsAPI::Vulkan;
-#endif
-
     // Attempt to create the possible backends using a vector of function pointers. Whichever succeeds first will be the chosen API.
     using RenderInterfaceFunction = std::unique_ptr<RenderInterface>(void);
     std::vector<RenderInterfaceFunction *> interfaceFunctions;
