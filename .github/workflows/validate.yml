@@ -5,7 +5,12 @@ on:
       ASSET_REPO:
         required: true
       ASSET_REPO_TOKEN:
-        required: true
+        required: true    
+  workflow_dispatch:
+  push:
+     branches:
+      - "**"
+        
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
